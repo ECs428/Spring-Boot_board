@@ -6,7 +6,7 @@
 4. mysql
 5. Spring Data JPA
 6. Thymeleaf
-</br>
+
 ## 게시판 주요기능
 1. 글쓰기(/board/save)
 2. 글목록(/board/)
