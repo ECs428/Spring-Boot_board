@@ -18,15 +18,29 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-thymeleaf-test'
-	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
-	testCompileOnly 'org.projectlombok:lombok'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	testAnnotationProcessor 'org.projectlombok:lombok'
+	// Spring Boot Starter: 프로젝트에 설정해야 할 다수의 의존성들을 포함
+	// Spring Boot Starter Web: 웹 요청을 처리하기 위한 기능 제공 (spring-webmvc, spring-boot-starter-tomcat 등 포함)
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-web-services")
+
+	// Spring Boot Starter Test: 테스트에 필요한 기능 제공 (JUnit 5, AssertJ, JsonPath, JSONassert 등 포함)
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	// Spring Boot Starter Data Jpa: JPA 사용
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+	// thymeleaf: 템플릿 엔진의 일종으로, 주로 백엔드 서버에서 HTML을 동적으로 렌더링하는 목적으로 사용
+	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+	// lombok: 어노테이션 기반으로 코드를 자동완성 해주는 라이브러리 (eg. Getter, Setter등을 자동 완성)
+	compileOnly("org.projectlombok:lombok")
+	annotationProcessor("org.projectlombok:lombok")
+
+	// mysql: mysql DB 사용
+	runtimeOnly("com.mysql:mysql-connector-j")
+
+	// JUnit: 독립된 단위테스트 지원
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.named('test') {
