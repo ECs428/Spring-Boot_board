@@ -1,6 +1,6 @@
 package com.example.board2026.Controller;
 
-import com.example.board2026.dto.boardDTO;
+import com.example.board2026.dto.BoardDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ public class  BoardController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute boardDTO boardDTO) {
+    public String save(@ModelAttribute BoardDTO boardDTO) {
         System.out.println("boardDTP = " + boardDTO);
         return null;
     }
