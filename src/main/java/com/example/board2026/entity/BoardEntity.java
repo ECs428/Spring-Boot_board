@@ -1,5 +1,6 @@
 package com.example.board2026.entity;
 
+import com.example.board2026.dto.BoardDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "board_table")
 public class BoardEntity extends BaseEntity {
-    @Id // pk 컬럼 지정. 필수
+    @Id // pk( Primary Key (기본 키)_중복X ) 컬럼 지정. 필수
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment (mysql 기준)
     private Long id;
 
@@ -29,6 +30,13 @@ public class BoardEntity extends BaseEntity {
     @Column
     private int boardHits;
 
-    @Column
-    private int fileAttached; // 1 or 0
+    public static BoardEntity toSaveEntity(BoardDTO boardDTO) {
+        BoardEntity boardEntity = new BoardEntity();
+        boardEntity.setBoardWriter(boardDTO.getBoardWriter());
+        boardEntity.setBoardPass(boardDTO.getBoardPass());
+        boardEntity.setBoardTitle(boardDTO.getBoardTitle());
+        boardEntity.setBoardContents(boardDTO.getBoardContents());
+        boardEntity.setBoardHits(0);
+        return boardEntity;
+    }
 }
