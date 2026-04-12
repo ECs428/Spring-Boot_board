@@ -1,10 +1,8 @@
 package com.example.board2026.Controller;
 
+import com.example.board2026.dto.boardDTO;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/board") // "/board"로 시작하는 주소를 컨트롤러가 먼저 읽음
@@ -15,7 +13,8 @@ public class  BoardController {
     }
 
     @PostMapping("/save")
-    public String save() {
+    public String save(@ModelAttribute boardDTO boardDTO) {
+        System.out.println("boardDTP = " + boardDTO);
         return null;
     }
 }
