@@ -23,13 +23,13 @@ public class BoardDTO {
     public  static BoardDTO toBoardDTO(BoardEntity boardEntity) {
         BoardDTO boardDTO = new BoardDTO();
         boardDTO.setId(boardEntity.getId());
-        boardDTO.setBoardWriter(boardDTO.getBoardWriter());
-        boardDTO.setBoardPass(boardDTO.getBoardPass());
-        boardDTO.setBoardTitle(boardDTO.getBoardTitle());
-        boardDTO.setBoardContents(boardDTO.getBoardContents());
-        boardDTO.setBoardHits(boardDTO.getBoardHits());
-        boardDTO.setBoardCreatedTime(boardDTO.getBoardCreatedTime());
-        boardDTO.setBoardUpdatedTime(boardDTO.getBoardCreatedTime());
+        boardDTO.setBoardWriter(boardEntity.getBoardWriter());
+        boardDTO.setBoardPass(boardEntity.getBoardPass());
+        boardDTO.setBoardTitle(boardEntity.getBoardTitle());
+        boardDTO.setBoardContents(boardEntity.getBoardContents());
+        boardDTO.setBoardHits(boardEntity.getBoardHits());
+        boardDTO.setBoardCreatedTime(boardEntity.getCreatedTime());
+        boardDTO.setBoardUpdatedTime(boardEntity.getUpdatedTime());
         return boardDTO;
     }
 }
