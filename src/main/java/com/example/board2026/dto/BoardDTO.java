@@ -1,5 +1,6 @@
 // DTO(Data Transfer Object): 데이터를 전송하는 객체 (데이터를 주고 받자는 의미)
 package com.example.board2026.dto;
+import com.example.board2026.entity.BoardEntity;
 import lombok.*;
 import java.time.LocalDateTime;
 
@@ -19,5 +20,16 @@ public class BoardDTO {
     private LocalDateTime boardCreatedTime; // 게시글 생성
     private LocalDateTime boardUpdatedTime; // 게시글 수정
 
-
+    public  static BoardDTO toBoardDTO(BoardEntity boardEntity) {
+        BoardDTO boardDTO = new BoardDTO();
+        boardDTO.setId(boardEntity.getId());
+        boardDTO.setBoardWriter(boardDTO.getBoardWriter());
+        boardDTO.setBoardPass(boardDTO.getBoardPass());
+        boardDTO.setBoardTitle(boardDTO.getBoardTitle());
+        boardDTO.setBoardContents(boardDTO.getBoardContents());
+        boardDTO.setBoardHits(boardDTO.getBoardHits());
+        boardDTO.setBoardCreatedTime(boardDTO.getBoardCreatedTime());
+        boardDTO.setBoardUpdatedTime(boardDTO.getBoardCreatedTime());
+        return boardDTO;
+    }
 }
